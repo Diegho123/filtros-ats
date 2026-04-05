@@ -1,0 +1,484 @@
+:root {
+  --primary-color: #2563eb;
+  --bg-color: #f8fafc;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* Formulario y Búsqueda */
+.main-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.search-bar {
+  margin-bottom: 1.5rem;
+}
+
+.search-bar label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: var(--text-main);
+  text-align: center;
+}
+
+/* --- NUEVO: Bloques dinámicos de Competencias --- */
+.keywords-input-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.keyword-input-box {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+  width: 220px; 
+}
+
+.keyword-input-box:focus-within {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.keyword-input-box input {
+  border: none;
+  padding: 0.8rem 1rem;
+  outline: none;
+  width: 150px;
+  width: 100%;
+  font-size: 0.95rem;
+}
+
+.remove-kw-btn {
+  background: #f1f5f9;
+  border: none;
+  color: #64748b;
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: bold;
+}
+
+.remove-kw-btn:hover {
+  background: #fee2e2;
+  color: #ef4444;
+}
+
+.add-kw-btn {
+  background: white;
+  border: 2px dashed var(--primary-color);
+  color: var(--primary-color);
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.add-kw-btn:hover {
+  background: #eff6ff;
+}
+
+/* Zona de Drag & Drop */
+.dropzone {
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  text-align: center;
+  background-color: #f8fafc;
+  transition: all 0.3s ease;
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.dropzone.dragging {
+  border-color: var(--primary-color);
+  background-color: #eff6ff;
+}
+
+.dropzone.has-files {
+  border-color: #10b981;
+  background-color: #ecfdf5;
+}
+
+.icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.file-input-hidden {
+  display: none;
+}
+
+.browse-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: white;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.browse-btn:hover {
+  background-color: #f1f5f9;
+}
+
+.analyze-btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.analyze-btn:hover:not(:disabled) {
+  background-color: #1d4ed8;
+}
+
+.analyze-btn:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* Tabla de ATS */
+.results-section {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.ats-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.ats-table th {
+  background-color: #f1f5f9;
+  padding: 1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.ats-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+.ats-table tr:hover {
+  background-color: #f8fafc;
+}
+
+.fw-bold {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+
+/* Información de contacto en la tabla */
+.contact-info {
+  margin-top: 0.4rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.filename-badge {
+  display: inline-block;
+  background-color: #e2e8f0;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  font-weight: 500;
+  color: #334155;
+}
+
+.filename-badge:hover {
+  background-color: #cbd5e1;
+}
+
+.filename-badge:active {
+  transform: scale(0.97);
+}
+
+/* Barra de Score */
+.score-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.score-bar-bg {
+  width: 100px;
+  height: 8px;
+  background-color: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.score-bar-fill {
+  height: 100%;
+  transition: width 0.5s ease-in-out;
+}
+
+.score-text {
+  font-weight: bold;
+}
+
+/* Badges de Competencias */
+.keywords-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.keyword-badge {
+  background-color: #dbeafe;
+  color: #1e40af;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.text-muted {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* --- NUEVO: Botones de Acción Directa --- */
+.actions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.action-btn {
+  display: inline-block;
+  text-align: center;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.1s, opacity 0.2s, background-color 0.2s;
+}
+
+.action-btn:active:not(.disabled) {
+  transform: scale(0.96);
+}
+
+.action-btn.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+  filter: grayscale(100%);
+}
+
+.email-btn {
+  background-color: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+}
+
+.email-btn:hover:not(.disabled) {
+  background-color: #e2e8f0;
+}
+
+.wa-btn {
+  background-color: #25D366; /* Verde oficial de WhatsApp */
+  color: white;
+  border: none;
+  box-shadow: 0 2px 4px rgba(37, 211, 102, 0.2);
+}
+
+.wa-btn:hover:not(.disabled) {
+  background-color: #1fad53;
+}
+
+.clear-btn {
+  margin-top: 0.5rem;
+  background: none;
+  border: none;
+  color: #ef4444;
+  text-decoration: underline;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filter-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.filter-controls label {
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.filter-controls select {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: white;
+  font-size: 0.9rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.sortable-header {
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.sortable-header:hover {
+  color: var(--primary-color) !important;
+  background-color: #e2e8f0;
+}
+
+.sortable-header::after {
+  content: ' ↕';
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
+
+.clear-btn {
+  margin-top: 0.5rem;
+  background: none;
+  border: none;
+  color: #ef4444;
+  text-decoration: underline;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* --- FASE 3: Estilos de la Estrella (Obligatorio) --- */
+.keyword-input-box {
+  width: 250px; /* Un poco más ancho para dar espacio a la estrella */
+}
+
+.keyword-input-box.is-must {
+  border-color: #fbbf24; /* Borde dorado si es obligatorio */
+  box-shadow: 0 0 5px rgba(251, 191, 36, 0.2);
+}
+
+.star-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.4rem;
+  color: #cbd5e1; /* Estrella gris por defecto */
+  transition: transform 0.2s, color 0.2s;
+}
+
+.star-btn:hover {
+  transform: scale(1.2);
+}
+
+.star-btn.active {
+  color: #f59e0b; /* Estrella dorada encendida */
+}
+
+/* --- FASE 3: Botón de Exportar a CSV --- */
+.export-btn {
+  background-color: #10b981; /* Verde esmeralda */
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.export-btn:hover {
+  background-color: #059669;
+}
+
+/* Fila descartada (0%) */
+.row-discarded {
+  background-color: #fef2f2 !important; /* Fondo rojizo suave */
+}
+
+.text-danger {
+  color: #ef4444;
+  font-weight: bold;
+  display: block;
+  margin-top: 0.3rem;
+}
