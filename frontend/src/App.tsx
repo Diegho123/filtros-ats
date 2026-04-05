@@ -138,8 +138,11 @@ function App() {
     files.forEach(file => { formData.append('files', file); });
 
     try {
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
-      const response = await axios.post(`${API_URL}/api/upload`, formData, {
+      // --- CORRECCIÓN A PRUEBA DE BALAS PARA LA URL DE VERCEL ---
+      const rawApiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      const cleanApiUrl = rawApiUrl.replace(/\/$/, ''); // Quita la barra extra al final si existe
+      
+      const response = await axios.post(`${cleanApiUrl}/api/upload`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       setResults(response.data.results);
